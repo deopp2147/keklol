@@ -15,9 +15,53 @@
     <!-- Вкладка «Сегодня» (класс active = она видна) -->
     <section id="tab-today" class="tab active">
       <h1>Сегодня</h1>
-      <div class="card">
-        <p class="placeholder">Здесь будет расписание пар на сегодня.</p>
-      </div>
+
+      <!-- Форма добавления пары -->
+      <form id="lesson-form" class="card form" autocomplete="off">
+        <h2>Добавить пару</h2>
+
+        <label class="field">
+          <span>Предмет</span>
+          <input type="text" id="lesson-subject" placeholder="Например, Матанализ" required maxlength="80">
+        </label>
+
+        <div class="row">
+          <label class="field">
+            <span>Начало</span>
+            <input type="time" id="lesson-start" required>
+          </label>
+          <label class="field">
+            <span>Конец</span>
+            <input type="time" id="lesson-end" required>
+          </label>
+        </div>
+
+        <div class="row">
+          <label class="field">
+            <span>Аудитория</span>
+            <input type="text" id="lesson-room" placeholder="305" maxlength="20">
+          </label>
+          <label class="field">
+            <span>День недели</span>
+            <select id="lesson-day">
+              <option value="0">Понедельник</option>
+              <option value="1">Вторник</option>
+              <option value="2">Среда</option>
+              <option value="3">Четверг</option>
+              <option value="4">Пятница</option>
+              <option value="5">Суббота</option>
+              <option value="6">Воскресенье</option>
+            </select>
+          </label>
+        </div>
+
+        <p id="form-message" class="form-message" role="status"></p>
+        <button type="submit" class="btn-primary">Добавить</button>
+      </form>
+
+      <!-- Список пар на сегодня -->
+      <h2 id="today-title" class="list-title">Пары на сегодня</h2>
+      <div id="lesson-list" class="lesson-list"></div>
     </section>
 
     <!-- Вкладка «Дз» -->
