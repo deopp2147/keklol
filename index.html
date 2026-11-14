@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <!-- Эта строка делает страницу удобной на телефоне -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Студент</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Основная область: здесь показывается одна вкладка за раз -->
+  <main class="content">
+
+    <!-- Вкладка «Сегодня» (класс active = она видна) -->
+    <section id="tab-today" class="tab active">
+      <h1>Сегодня</h1>
+      <div class="card">
+        <p class="placeholder">Здесь будет расписание пар на сегодня.</p>
+      </div>
+    </section>
+
+    <!-- Вкладка «Дз» -->
+    <section id="tab-homework" class="tab">
+      <h1>Дз</h1>
+      <div class="card">
+        <p class="placeholder">Здесь будет список домашних заданий.</p>
+      </div>
+    </section>
+
+    <!-- Вкладка «Календарь» -->
+    <section id="tab-calendar" class="tab">
+      <h1>Календарь</h1>
+      <div class="card">
+        <p class="placeholder">Здесь будет календарь важных дат.</p>
+      </div>
+    </section>
+
+    <!-- Вкладка «Выход» -->
+    <section id="tab-leave" class="tab">
+      <h1>Выход</h1>
+      <div class="card">
+        <p class="placeholder">Здесь будет время выхода из дома.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Нижняя панель. data-tab должен совпадать с id вкладки выше -->
+  <nav class="tabbar" aria-label="Разделы приложения">
+    <button class="tabbar-btn active" data-tab="tab-today">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
+      <span>Сегодня</span>
+    </button>
+    <button class="tabbar-btn" data-tab="tab-homework">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="16" rx="2"/><path d="M9 9h6M9 13h6"/></svg>
+      <span>Дз</span>
+    </button>
+    <button class="tabbar-btn" data-tab="tab-calendar">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>
+      <span>Календарь</span>
+    </button>
+    <button class="tabbar-btn" data-tab="tab-leave">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h12M13 8l4 4-4 4"/><path d="M5 5v14"/></svg>
+      <span>Выход</span>
+    </button>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>

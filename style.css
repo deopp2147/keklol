@@ -1,0 +1,117 @@
+/* ===== Цвета и размеры в одном месте ===== */
+:root {
+  --bg: #eef3f4;          /* фон страницы: светлый серо-голубой */
+  --card: #ffffff;        /* фон карточек */
+  --text: #1f2d33;        /* основной текст */
+  --muted: #7b8b91;       /* второстепенный текст */
+  --accent: #3f8f8b;      /* акцент: спокойный бирюзовый */
+  --accent-soft: #dcecea; /* светлая подложка активной вкладки */
+  --radius: 20px;         /* скругление карточек */
+  --tabbar-h: 68px;       /* высота нижней панели */
+}
+
+/* ===== Общие настройки ===== */
+* {
+  box-sizing: border-box; /* ширина считается вместе с отступами */
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+/* ===== Область с содержимым ===== */
+.content {
+  max-width: 560px;   /* на компьютере не растягиваем на весь экран */
+  margin: 0 auto;
+  padding: 24px 16px;
+  /* оставляем место под нижнюю панель */
+  padding-bottom: calc(var(--tabbar-h) + 24px + env(safe-area-inset-bottom, 0px));
+}
+
+h1 {
+  margin: 0 0 16px;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+/* ===== Вкладки: по умолчанию скрыты, видна только активная ===== */
+.tab {
+  display: none;
+}
+
+.tab.active {
+  display: block;
+}
+
+/* ===== Карточка ===== */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(31, 45, 51, 0.06);
+}
+
+.placeholder {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* ===== Нижняя панель ===== */
+.tabbar {
+  position: fixed;     /* прижата к низу экрана */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  height: calc(var(--tabbar-h) + env(safe-area-inset-bottom, 0px));
+  padding: 8px 8px env(safe-area-inset-bottom, 0px);
+  background: var(--card);
+  border-top: 1px solid #dde6e8;
+}
+
+.tabbar-btn {
+  flex: 1;                 /* все 4 кнопки одинаковой ширины */
+  display: flex;
+  flex-direction: column;  /* иконка сверху, подпись снизу */
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  margin: 0 2px;
+  border: none;
+  border-radius: 14px;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.tabbar-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;    /* иконка берёт цвет текста кнопки */
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Активная вкладка подсвечивается */
+.tabbar-btn.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Видно, на какой кнопке стоит фокус при управлении с клавиатуры */
+.tabbar-btn:focus-visible {
+  outline: 2px solid var(--accent);
+}
